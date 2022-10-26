@@ -1,4 +1,13 @@
 
+body{
+    background-color: black;
+}
 .panic{
-
+    background-color: blue;
+    color: blueviolet;
+    border-color: aliceblue;
+    border-radius: 25px;
+}
+.panic li{
+    color: red;
 }
