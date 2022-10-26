@@ -6,6 +6,6 @@ public class RandomTest {
     @Test
     @DisplayName("Nu finns en test")
     void random_test(){
-        
+
     }
 }
