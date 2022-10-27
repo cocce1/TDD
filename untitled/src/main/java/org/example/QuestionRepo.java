@@ -11,5 +11,4 @@ public interface QuestionRepo {
     Collection<Questions> getAllQuestions();
     String update(Integer id);
 
-
 }
