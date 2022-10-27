@@ -12,7 +12,7 @@ public class InMemoryDeleteTest {
         memory = new InMemory();
     }
 
-@Test
+    @Test
     @DisplayName("Remove 1 question from memory")
     void remove_1_question(){
         Questions questions = new Questions(1,"Hallo",new String[]{"1","2","3"},"4");

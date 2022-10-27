@@ -16,7 +16,14 @@ public class InMemory implements QuestionRepo{
 
     @Override
     public String delete(Integer id) {
-        return null;
+
+        if(data.get(id) == null){
+            return "can't find Question with id: " + id;
+        }
+        else {
+            data.remove(id);
+            return "question with id " + 1 + " was removed";
+        }
     }
 
     @Override
