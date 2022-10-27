@@ -9,6 +9,6 @@ public interface QuestionRepo {
     String delete(Integer id);
     Questions getQuestion(Integer id);
     Collection<Questions> getAllQuestions();
-    Questions update(Integer id,String question, String[] answers,String correctAnswer);
+  Questions update(Integer id,String question, String[] answers,String correctAnswer);
 
 }

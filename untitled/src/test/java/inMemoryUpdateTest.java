@@ -1,3 +1,4 @@
+import org.example.FieldEmptyException;
 import org.example.InMemory;
 import org.example.Questions;
 import org.junit.jupiter.api.Assertions;
@@ -28,6 +29,46 @@ public class inMemoryUpdateTest {
     Questions result = mock.update(questions.getId(),"nej",new String[]{"1","2","6"},"5");
     Questions expected = new Questions(1,"nej",new String[]{"1","2","6"},"5");
     Assertions.assertEquals(expected,result);
-
 }
+    @Test
+    @DisplayName("question didn't update")
+    public void question_not_update(){
+        Questions questions = new Questions(1,"Hallo",new String[]{"1","2","3"},"4");
+        InMemory mock = Mockito.mock(InMemory.class);
+        Mockito.when(mock.getQuestion(questions.getId())).thenReturn(questions);
+        Questions result = mock.update(questions.getId(),"nej",new String[]{"1","2","6"},"5");
+        Questions expected = new Questions(1,"nej",new String[]{"1","2","6"},"5");
+        Assertions.assertNotEquals(expected,result);
+    }
+
+@Test
+    @DisplayName("Answer not null")
+    public void answer_null_throw_exception(){
+    Assertions.assertThrows(NullPointerException.class, () -> memory.update(1,"hallo",null,"4"));
+}
+    @Test
+    @DisplayName("Question not null")
+    public void question_null_throw_exception(){
+        Assertions.assertThrows(NullPointerException.class, () -> memory.update(1,null,new String[]{"1","2","3"},"4"));
+    }
+    @Test
+    @DisplayName("correct answer not null")
+    public void correct_null_throw_exception(){
+        Assertions.assertThrows(NullPointerException.class, () -> memory.update(1,"hallo",new String[]{"1","2","3"},null));
+    }
+    @Test
+    @DisplayName("Answer not empty")
+    public void answer_not_empty(){
+        Assertions.assertThrows(FieldEmptyException.class, () -> memory.update(1,"hallo",new String[]{},"4"));
+    }
+    @Test
+    @DisplayName("Question not null")
+    public void question_null_throw_empty(){
+        Assertions.assertThrows(FieldEmptyException.class, () -> memory.update(1," ",new String[]{"1","2","3"},"4"));
+    }
+    @Test
+    @DisplayName("correct answer not null")
+    public void correct_null_throw_empty(){
+        Assertions.assertThrows(FieldEmptyException.class, () -> memory.update(1,"hallo",new String[]{"1","2","3"}," "));
+    }
 }
