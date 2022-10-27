@@ -22,7 +22,7 @@ public class InMemory implements QuestionRepo{
         }
         else {
             data.remove(id);
-            return "question with id " + 1 + " was removed";
+            return "question with id " + id + " was removed";
         }
     }
 
@@ -37,7 +37,7 @@ public class InMemory implements QuestionRepo{
     }
 
     @Override
-    public String update(Integer id) {
+    public Questions update(Integer id, String question, String[] answers,String correctAnswer) {
         return null;
     }
 }
