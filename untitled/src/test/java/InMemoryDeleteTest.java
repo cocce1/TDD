@@ -45,10 +45,8 @@ public class InMemoryDeleteTest {
    @Test
     @DisplayName("Error message if there is no question with that id")
     void error_message_if_no_match(){
-
        String result =  repo.delete(1);
        String expected = "can't find Question with id: " + 1;
-
        Assertions.assertEquals(expected,result);
    }
 
