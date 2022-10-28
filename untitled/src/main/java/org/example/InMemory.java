@@ -40,4 +40,8 @@ public class InMemory implements QuestionRepo{
     public Questions update(Integer id, String question, String[] answers,String correctAnswer) {
         return null;
     }
+    @Override
+    public int count(){
+        return data.size();
+    }
 }

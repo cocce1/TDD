@@ -1,4 +1,4 @@
-import org.example.FieldEmptyException;
+import org.example.exception.FieldEmptyException;
 import org.example.InMemory;
 import org.example.Questions;
 import org.junit.jupiter.api.Assertions;

@@ -10,5 +10,6 @@ public interface QuestionRepo {
     Questions getQuestion(Integer id);
     Collection<Questions> getAllQuestions();
   Questions update(Integer id,String question, String[] answers,String correctAnswer);
+    int count();
 
 }
