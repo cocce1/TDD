@@ -57,14 +57,7 @@ public class InMemoryDeleteTest {
        repo.add(questions);
        Assertions.assertThrows(NullPointerException.class,() ->repo.delete(null));
    }
-   @Test
-   @DisplayName("delete throw not exist exception")
-   void delete_throw_not_exist_exception(){
-       Questions questions = new Questions(1,"Hallo",new String[]{"1","2","3"},"4");
-       repo.add(questions);
-       Assertions.assertThrows(NotExistException.class,() -> repo.delete(25));
-       Assertions.assertEquals(1,repo.count());
-   }
+
    @ParameterizedTest
    @MethodSource("multiQuestion")
     @DisplayName("Remove question in collection")

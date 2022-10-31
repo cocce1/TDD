@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.exception.NotExistException;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,8 +19,9 @@ public class InMemory implements QuestionRepo{
     @Override
     public String delete(Integer id) {
 
+
         if(data.get(id) == null){
-            return "can't find Question with id: " + id;
+            throw new NullPointerException("can't find Question with id: " + id);
         }
         else {
             data.remove(id);
