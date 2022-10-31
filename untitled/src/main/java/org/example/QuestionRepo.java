@@ -10,6 +10,7 @@ public interface QuestionRepo {
     Questions getQuestion(Integer id);
     Collection<Questions> getAllQuestions();
     String update(Integer id);
+    int count();
 
 
 }

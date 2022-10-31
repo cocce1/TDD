@@ -33,4 +33,9 @@ public class InMemory implements QuestionRepo{
     public String update(Integer id) {
         return null;
     }
+
+    @Override
+    public int count() {
+        return data.size();
+    }
 }
