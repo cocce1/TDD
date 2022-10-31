@@ -28,7 +28,7 @@ public class InMemoryDeleteTest {
         repo.add(questions);
         String result =  repo.delete(questions.getId());
 
-        String expected = "question with id " + 1 + " was removed";
+        String expected = "question with id " + questions.getId() + " was removed";
 
     Assertions.assertEquals(expected,result);
 }
@@ -71,7 +71,7 @@ public class InMemoryDeleteTest {
     void memory_should_be_one_less(Questions questions){
        repo.add(questions);
        repo.delete(2);
-       Assertions.assertEquals(3,repo.count());
+       Assertions.assertEquals(4,repo.count());
     }
 
     public static Stream<Arguments> multiQuestion(){
@@ -80,7 +80,8 @@ public class InMemoryDeleteTest {
                         Arguments.arguments(new Questions(2,"Hallo",new String[]{"1","2","3"},"4")),
                         Arguments.arguments(new Questions(3,"Hallo",new String[]{"1","2","3"},"4")),
                         Arguments.arguments(new Questions(4,"Hallo",new String[]{"1","2","3"},"4")),
-                        Arguments.arguments(new Questions(5,"Hallo",new String[]{"1","2","3"},"4")))
+                        Arguments.arguments(new Questions(5,"Hallo",new String[]{"1","2","3"},"4"))
+                        )
         );
     }
 }
